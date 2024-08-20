@@ -1,0 +1,1 @@
+{"cells":[{"kind":2,"language":"SQL++","value":"select { \"k1\": 1, \"nested\": { \"k2\": 2 } }"},{"kind":2,"language":"SQL++","value":"select { 'key': [1, 2, 3] }"},{"kind":2,"language":"SQL++","value":"select [[1, 2], 3]"},{"kind":2,"language":"SQL++","value":"select [1, 2, 3, { 'key': [1, 2, 3] }]"}]}

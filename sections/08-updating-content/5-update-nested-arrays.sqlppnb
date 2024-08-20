@@ -1,0 +1,1 @@
+{"cells":[{"kind":2,"language":"SQL++","value":"select raw books\r\nfrom test.samples.store"},{"kind":2,"language":"SQL++","value":"UPDATE test.samples.store\r\nSET b.price = 24.99 FOR b IN books WHEN b.title = 'Sword of Honour' END\r\nRETURNING raw store.books"},{"kind":2,"language":"SQL++","value":"select empDetails[*].children\r\nfrom test.samples.emp_details"}]}

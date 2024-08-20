@@ -1,0 +1,1 @@
+{"cells":[{"kind":2,"language":"SQL++","value":"select raw s\r\nfrom test.samples.store s"},{"kind":2,"language":"SQL++","value":"UPDATE test.samples.store\r\nSET bicycle.color = 'green'\r\nRETURNING *"},{"kind":2,"language":"SQL++","value":"UPDATE test.samples.store\r\nSET bicycle.available = true\r\nRETURNING raw store.bicycle"}]}
