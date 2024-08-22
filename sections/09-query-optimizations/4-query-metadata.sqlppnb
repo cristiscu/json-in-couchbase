@@ -1,1 +1,1 @@
-{"cells":[]}
+{"cells":[{"kind":2,"language":"SQL++","value":"select raw META()\r\nfrom test.samples.books"},{"kind":2,"language":"SQL++","value":"select META(b).*, b.*\r\nfrom test.samples.books b"},{"kind":2,"language":"SQL++","value":"select idx.*\r\nfrom system:indexes idx\r\nwhere idx.bucket_id = \"test\" "},{"kind":2,"language":"SQL++","value":"select b.*\r\nfrom system:buckets b"},{"kind":2,"language":"SQL++","value":"select b.*\r\nfrom system:functions b"}]}

@@ -1,0 +1,43 @@
+BEGIN TRANSACTION;
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+select t.* from system:transactions t
+
+-- insert w/ price at 2.99
+UPSERT INTO test.samples.books b (KEY, VALUE)
+VALUES ("68", { "title": "Streamlit in Snowflake", "price": 2.99 })
+RETURNING b.title, b.price;
+
+SAVEPOINT price_299;
+
+-- change price to 3.99
+UPSERT INTO test.samples.books b (KEY, VALUE)
+VALUES ("68", { "title": "Streamlit in Snowflake", "price": 3.99 })
+RETURNING b.title, b.price;
+
+SAVEPOINT price_399;
+
+-- update price to 4.99
+UPDATE test.samples.books b
+SET b.price = 4.99
+WHERE b.title = "Streamlit in Snowflake"
+RETURNING b.title, b.price;
+
+-- price must be back at 3.99
+ROLLBACK TO SAVEPOINT price_399;
+
+select b.title, b.price
+from test.samples.books b
+where b.title = "Streamlit in Snowflake";
+
+COMMIT;
+select t.* from system:transactions t;
+
+-- price must be persisted at 3.99
+select b.title, b.price
+from test.samples.books b
+where b.title = "Streamlit in Snowflake";
+
+-- remove added record
+DELETE FROM test.samples.books b
+WHERE META().id = "68"
+RETURNING b.title, b.price
