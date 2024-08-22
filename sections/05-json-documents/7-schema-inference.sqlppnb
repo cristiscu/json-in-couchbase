@@ -1,0 +1,1 @@
+{"cells":[{"kind":2,"language":"SQL++","value":"INFER test.samples.emp_details\r\nWITH { \"sample_size\": 100, \"num_sample_values\": 3, \"similarity_metric\": 0.9 }"},{"kind":2,"language":"SQL++","value":"INFER test.samples.store"},{"kind":2,"language":"SQL++","value":"INFER test.samples.books"}]}
