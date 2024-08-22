@@ -1,0 +1,39 @@
+/*************************/ 
+/** Scope inventory */ 
+/*************************/ 
+CREATE SCOPE `travel-sample`.`inventory`;
+
+/* DDL for collection inventory.airline */
+CREATE COLLECTION `travel-sample`.`inventory`.`airline`; 
+CREATE PRIMARY INDEX `def_inventory_airline_primary` ON `travel-sample`.`inventory`.`airline`
+
+/* DDL for collection inventory.route */
+CREATE COLLECTION `travel-sample`.`inventory`.`route`; 
+CREATE PRIMARY INDEX `def_inventory_route_primary` ON `travel-sample`.`inventory`.`route`; 
+CREATE INDEX `def_inventory_route_route_src_dst_day` ON `travel-sample`.`inventory`.`route`(`sourceairport`, `destinationairport`, (distinct (array (`v`.`day`) for `v` in `schedule` end))); 
+CREATE INDEX `def_inventory_route_schedule_utc` ON `travel-sample`.`inventory`.`route`(array (`s`.`utc`) for `s` in `schedule` end); 
+CREATE INDEX `def_inventory_route_sourceairport` ON `travel-sample`.`inventory`.`route`(`sourceairport`); 
+
+
+/* DDL for collection inventory.landmark */
+CREATE COLLECTION `travel-sample`.`inventory`.`landmark`; 
+CREATE PRIMARY INDEX `def_inventory_landmark_primary` ON `travel-sample`.`inventory`.`landmark`; 
+CREATE INDEX `def_inventory_landmark_city` ON `travel-sample`.`inventory`.`landmark`(`city`); 
+
+
+/* DDL for collection inventory.hotel */
+CREATE COLLECTION `travel-sample`.`inventory`.`hotel`; 
+CREATE PRIMARY INDEX `def_inventory_hotel_primary` ON `travel-sample`.`inventory`.`hotel`; 
+CREATE INDEX `def_inventory_hotel_city` ON `travel-sample`.`inventory`.`hotel`(`city`); 
+
+
+/* DDL for collection inventory.airport */
+CREATE COLLECTION `travel-sample`.`inventory`.`airport`; 
+CREATE PRIMARY INDEX `def_inventory_airport_primary` ON `travel-sample`.`inventory`.`airport`; 
+CREATE INDEX `def_inventory_airport_airportname` ON `travel-sample`.`inventory`.`airport`(`airportname`); 
+CREATE INDEX `def_inventory_airport_city` ON `travel-sample`.`inventory`.`airport`(`city`); 
+CREATE INDEX `def_inventory_airport_faa` ON `travel-sample`.`inventory`.`airport`(`faa`); 
+
+
+
+

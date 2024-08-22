@@ -1,1 +1,1 @@
-{"cells":[]}
+{"cells":[{"kind":2,"language":"SQL++","value":"select BITNOT(3),\r\n    BITAND(3, 6),\r\n    BITOR(3, 6),\r\n    BITXOR(3, 6)"},{"kind":2,"language":"SQL++","value":"select ISBITSET(3, 1),\r\n    BITSET(3, 2),\r\n    BITSHIFT(3, 1)"}]}
