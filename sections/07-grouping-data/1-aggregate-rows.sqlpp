@@ -1,0 +1,10 @@
+select person.*
+from [
+	{ "name": "John", "rating": 3.5 },
+	{ "name": "John", "rating": 5   },
+	{ "name": "John", "rating": 4.5 },
+	{ "name": "Mary", "rating": 5   },
+	{ "name": "Jack", "rating": 4.8 },
+	{ "name": "Jack", "rating": 4.4 },
+	{ "name": "Jack", "rating": 4.9 }
+] person
